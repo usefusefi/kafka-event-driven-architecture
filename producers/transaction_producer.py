@@ -3,9 +3,14 @@ import json
 
 producer = KafkaProducer(
     bootstrap_servers=['localhost:9092'],
-    value_serializer=lambda v: json.dumps(v).encode('utf-8')
+    key_serializer=str.encode,
+    value_serializer=lambda v: json.dumps(v).encode('utf-8'),
+    compression_type='gzip',
+    batch_size=16384,
+    linger_ms=10
 )
 
+# Send simulated transaction events
 transaction_data = {
     "user_id": "user_123",
     "transaction_id": "txn_456",
@@ -14,6 +19,5 @@ transaction_data = {
     "location": "ATM_123",
     "time": "2025-01-01T10:15:00Z"
 }
-
-# Send the transaction event to Kafka
-producer.send('transaction-events', value=transaction_data)
+producer.send('transaction-events', key=transaction_data["user_id"], value=transaction_data)
+producer.flush()
