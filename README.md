@@ -25,5 +25,5 @@ This repository provides **production-ready Kafka components** for:
 ## **🛠 How to Use**  
 ### **1️⃣ Clone this Repository**
 ```bash
-git clone https://github.com/YOUR_USERNAME/kafka-event-driven-architecture.git
+git clone https://github.com/usefusefi/kafka-event-driven-architecture.git
 cd kafka-event-driven-architecture
