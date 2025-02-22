@@ -25,5 +25,26 @@ This repository provides **production-ready Kafka components** for:
 ## **🛠 How to Use**  
 ### **1️⃣ Clone this Repository**
 ```bash
-git clone https://github.com/usefusefi/kafka-event-driven-architecture.git
+git clone https://github.com/YOUR_USERNAME/kafka-event-driven-architecture.git
 cd kafka-event-driven-architecture
+```
+
+### **2️⃣ Start Kafka Services**
+```bash
+docker-compose up -d
+```
+
+### **3️⃣ Run Kafka Producers**
+```bash
+python producers/transaction_producer.py
+```
+
+### **4️⃣ Run Kafka Consumers**
+```bash
+python consumers/fraud_detection_consumer.py
+```
+
+### **5️⃣ Start Jupyter Notebook**
+```bash
+jupyter notebook notebooks/kafka_fraud_detection.ipynb
+```
